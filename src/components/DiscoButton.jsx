@@ -2,12 +2,14 @@ import { useState } from "react";
 
 function DiscoButton() {
   // Coloring
-  const [btnColor, setBtnColor] = useState("white");
-  const randomHsl = () => `hsla(${Math.random() * 360}, 100%, 50%, 1)`;
-  const changeColor = () => setBtnColor(randomHsl);
+  const colors = ["purple", "blue", "green", "yellow", "orange", "red"];
+  const [btnColor, setBtnColor] = useState(0);
+  const changeColor = () => setBtnColor(btnColor < colors.length - 1 ? btnColor + 1 : 0);
+
   // Increments
   const [counter, setCounter] = useState(0);
   const incrementValue = () => setCounter(counter + 1);
+
   // Combined two functions
   const combinedFunc = () => {
     changeColor();
@@ -15,7 +17,7 @@ function DiscoButton() {
   };
 
   return (
-    <button style={{ backgroundColor: btnColor }} onClick={combinedFunc}>
+    <button style={{ backgroundColor: colors[btnColor] }} onClick={combinedFunc}>
       {counter} Likes
     </button>
   );

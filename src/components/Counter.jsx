@@ -7,7 +7,7 @@ function Counter() {
 
   return (
     <div className="counter">
-      <button onClick={counter > 0 && decrementValue}>-</button>
+      <button onClick={() => counter > 0 && decrementValue()}>-</button>
       <p>{counter}</p>
       <button onClick={incrementValue}>+</button>
     </div>

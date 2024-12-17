@@ -13,9 +13,9 @@ function Carousel() {
 
   return (
     <div className="carousel">
-      <button onClick={counter > 0 && decrementValue}>Left</button>
+      <button onClick={() => counter > 0 && decrementValue()}>Left</button>
       <img src={images[counter]} alt="Portrait" />
-      <button onClick={counter < 3 && incrementValue}>Right</button>
+      <button onClick={() => counter < 3 && incrementValue()}>Right</button>
     </div>
   );
 }

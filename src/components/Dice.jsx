@@ -9,13 +9,13 @@ import Dice6 from "../assets/images/dice6.png";
 
 function Dice() {
   const dices = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6];
-  const randomDice = dices[Math.floor(Math.random() * dices.length)];
-  const [currentDice, setCurrentDice] = useState(randomDice);
+  const randomDice = () => dices[Math.floor(Math.random() * dices.length)];
+  const [currentDice, setCurrentDice] = useState(randomDice());
 
   const changeDice = () => {
     setCurrentDice(Dice0);
     setTimeout(() => {
-      setCurrentDice(randomDice);
+      setCurrentDice(randomDice());
     }, 1000);
   };
 
