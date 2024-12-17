@@ -7,15 +7,15 @@ function Carousel() {
     "https://randomuser.me/api/portraits/women/2.jpg",
     "https://randomuser.me/api/portraits/men/2.jpg",
   ];
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(10000);
   const incrementValue = () => setCounter(counter + 1);
   const decrementValue = () => setCounter(counter - 1);
 
   return (
     <div className="carousel">
-      <button onClick={() => counter > 0 && decrementValue()}>Left</button>
-      <img src={images[counter]} alt="Portrait" />
-      <button onClick={() => counter < 3 && incrementValue()}>Right</button>
+      <button onClick={decrementValue}>Left</button>
+      <img src={images[counter % images.length]} alt="Portrait" />
+      <button onClick={incrementValue}>Right</button>
     </div>
   );
 }
